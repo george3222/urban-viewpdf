@@ -1,0 +1,82 @@
+
+
+.centra____l_kjhgftyjkK{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.form_wrapper___{
+    width: 500px;
+    height: 350px;
+    height: auto;
+    border: 1px solid #333;
+    z-index: 1000;
+    background: #fff;
+}
+
+.securrr{
+    max-width: 500px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+
+.clasfrm {
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    margin: 10px 2px;
+    width: auto;
+}
+
+.clasfrm > span {
+    padding: 10px;
+    line-height: 1.5;
+    font-size: 15px;
+    border: 1px solid #000;
+    border-right: 0;
+}
+
+[class^="ri-"], [class*=" ri-"] {
+    font-family: 'remixicon' !important;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.clasfrm > input {
+    width: 310px;
+    padding: 10px;
+    line-height: 1.5;
+    font-size: 15.5px;
+    border: 1px solid #000;
+    outline: none !important;
+    transition: all .2s linear;
+}
+
+.clasfrm > input:focus{
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 11px;
+}
+
+#view{
+    width: 350px;
+    padding: 10px;
+    border-radius: 0;
+    border: 1px solid #e4e4e4;
+    font-size: 14px;
+    font-family: Verdana;
+    background: #b74446;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    border: 1px solid #b74446;
+}

